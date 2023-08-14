@@ -5,4 +5,3 @@ const moment = require('moment');
 exports.inicio = (req, res) => {
     res.status(200).render('index');
 };
-    
