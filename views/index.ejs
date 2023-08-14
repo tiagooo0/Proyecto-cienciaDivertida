@@ -5,10 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atomitos</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Estilos personalizados */
+    body {
+      background-color: rgb(50, 47, 47);
+      color: bisque;
+    }
+
+    .botonGen {
+      margin-top: 20px; /* Ajusta el margen superior del botón */
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .obj1 {
+      flex: 1;
+      margin: 5px;
+    }
+
+    .obj2 {
+      flex: 1;
+      margin: 5px;
+    }
+
+    .obj2 h3 {
+      max-width: 100%;
+      font-size: 20px;
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
   <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <img src="/logo123.png" alt="" style="max-height: 200px; max-width: 150px;">
@@ -25,19 +59,20 @@
     </nav>
   </div>
   <div class="container">
-<div class="obj1">
-    <img class="mr-2" src="/feliz.jpeg" alt="doctor sonriente" style="max-width: 350px; max-height: 500px;">
-</div>
-<div class="obj2">
-    <h3 style="max-width: 300px; font-size: 15px;">
-      "En la vida, enfrentamos desafíos que parecen insuperables, pero tú, querido Giamba, has demostrado una fuerza inquebrantable al superar una enfermedad grande. Tu valentía y determinación son un ejemplo inspirador para todos nosotros. Recuerda siempre que no hay obstáculo que no puedas conquistar. ¡Sigamos adelante juntos, con optimismo y esperanza en el corazón!"
-    </h3>
-   
-    
+    <div class="obj1">
+      <img class="mr-2" src="/feliz.jpeg" alt="doctor sonriente" style="max-width: 350px; max-height: 500px;">
+    </div>
+    <div class="obj2">
+      <h3>
+        "En la vida, enfrentamos desafíos que parecen insuperables, pero tú, querido Giamba, has demostrado una fuerza inquebrantable al superar una enfermedad grande. Tu valentía y determinación son un ejemplo inspirador para todos nosotros. Recuerda siempre que no hay obstáculo que no puedas conquistar. ¡Sigamos adelante juntos, con optimismo y esperanza en el corazón!"
+      </h3>
+      <div class="d-flex justify-content-center botonGen">
+        <a href="http://localhost:3000/generador">
+          <button class="btn btn-info" type="submit">Ir al generador</button>
+        </a>
+      </div>
+    </div>
   </div>
-  </div>
-
-  <a href="http://localhost:3000/generador"><button class="button">Ir al Generador</button></a>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
