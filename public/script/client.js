@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   
     botonGenerar.addEventListener("click", function () {
-      let letrasAleatorias = 'TCA'; // Iniciamos con 'TCA'
+      let letrasAleatorias = 'TAC'; // Iniciamos con 'TAC'
       let letrasFinales = ["ACT", "ATT" ,"ATC"]
   
       for (let i = 3; i < cantidadLetras; i++) {
