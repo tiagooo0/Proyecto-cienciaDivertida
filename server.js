@@ -21,8 +21,3 @@ const port = 3000;
 app.listen(port, () => {
     console.log(`Servidor corriendo en el puerto ${port} correctamente`);
 });
-app.use('/', myRouter);
-app.get('/generador', (req, res) => {
-    res.render('generador')
-    
-})
