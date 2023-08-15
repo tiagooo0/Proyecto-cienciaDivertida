@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const letrasPosibles = ['C', 'T', 'G', 'A'];
-    const cantidadLetras = 18;
+    const cantidadLetras = 15;
     const contenidoElement = document.getElementById("contenido");
     const botonGenerar = document.getElementById("botonGenerar");
   
@@ -11,13 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
   
     botonGenerar.addEventListener("click", function () {
       let letrasAleatorias = 'TCA'; // Iniciamos con 'TCA'
+      let letrasFinales = ["ACT", "ATT" ,"ATC"]
   
       for (let i = 3; i < cantidadLetras; i++) {
         letrasAleatorias += generarLetraAleatoria(letrasPosibles);
       }
-  
+      letrasAleatorias += letrasFinales[Math.floor(Math.random() * letrasFinales.length)]
       contenidoElement.textContent = letrasAleatorias;
-      // document.getElementById("contenido").innerHTML = letrasAleatorias; // No es necesario esta línea aquí
     });
   });
-  
+   
