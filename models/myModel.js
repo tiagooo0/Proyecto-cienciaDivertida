@@ -2,26 +2,19 @@
 const mongoose = require("mongoose");
 
 //Creación del Schema Post
-const postSchema = new mongoose.Schema({
-    title: {
+const adnSchema = new mongoose.Schema({
+    adn: {
         type: String,
-        required: [true, "Un post debe tener un título"],
     },
-    description: {
+    arn: {
         type: String,
-        required: [true, "Un post debe tener una descripción"],
     },
-    date: {
-        type: Date,
-        required: [true, "Un post debe tener una fecha"],
-    },
-    technologies: {
-        type: [String],
-        required: [true, "Un post debe contar con tecnologías"],
+    proteina: {
+        type: String,
     },
 });
 
 //Creación del modelo Post
-const Post = mongoose.model("Post", postSchema);
+const Post = mongoose.model("Post", adnSchema);
 
 module.exports = Post;
