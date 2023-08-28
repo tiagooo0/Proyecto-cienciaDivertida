@@ -1,4 +1,5 @@
 //Modelo de ejemplo para alojar datos en una DB mongo
+
 const mongoose = require("mongoose");
 
 //Creación del Schema Post

@@ -1,4 +1,72 @@
-let adnData = {}; // Declarar formData en un alcance global
+let adnData = {}; // Declarar formData en un alcance globa
+const codonesCorrespondientes = [];
+const codones = {
+  "UUU": "Fenilalanina (Phe)",
+  "UUC": "Fenilalanina (Phe)",
+  "UUA": "Leucina (Leu)",
+  "UUG": "Leucina (Leu)",
+  "CUU": "Leucina (Leu)",
+  "CUC": "Leucina (Leu)",
+  "CUA": "Leucina (Leu)",
+  "CUG": "Leucina (Leu)",
+  "AUU": "Isoleucina (Ile)",
+  "AUC": "Isoleucina (Ile)",
+  "AUA": "Isoleucina (Ile)",
+  "AUG": "Metionina (Met) (Codón de Inicio)",
+  "GUU": "Valina (Val)",
+  "GUC": "Valina (Val)",
+  "GUA": "Valina (Val)",
+  "GUG": "Valina (Val)",
+  "UCU": "Serina (Ser)",
+  "UCC": "Serina (Ser)",
+  "UCA": "Serina (Ser)",
+  "UCG": "Serina (Ser)",
+  "CCU": "Prolina (Pro)",
+  "CCC": "Prolina (Pro)",
+  "CCA": "Prolina (Pro)",
+  "CCG": "Prolina (Pro)",
+  "ACU": "Treonina (Thr)",
+  "ACC": "Treonina (Thr)",
+  "ACA": "Treonina (Thr)",
+  "ACG": "Treonina (Thr)",
+  "GCU": "Alanina (Ala)",
+  "GCC": "Alanina (Ala)",
+  "GCA": "Alanina (Ala)",
+  "GCG": "Alanina (Ala)",
+  "UAU": "Tirosina (Tyr)",
+  "UAC": "Tirosina (Tyr)",
+  "UAA": "(Codón de Terminación)",
+  "UAG": "(Codón de Terminación)",
+  "CAU": "Histidina (His)",
+  "CAC": "Histidina (His)",
+  "CAA": "Glutamina (Gln)",
+  "CAG": "Glutamina (Gln)",
+  "AAU": "Asparagina (Asn)",
+  "AAC": "Asparagina (Asn)",
+  "AAA": "Lisina (Lys)",
+  "AAG": "Lisina (Lys)",
+  "GAU": "Ácido aspártico (Asp)",
+  "GAC": "Ácido aspártico (Asp)",
+  "GAA": "Ácido glutámico (Glu)",
+  "GAG": "Ácido glutámico (Glu)",
+  "UGU": "Cisteína (Cys)",
+  "UGC": "Cisteína (Cys)",
+  "UGA": "(Codón de Terminación)",
+  "UGG": "Triptófano (Trp)",
+  "CGU": "Arginina (Arg)",
+  "CGC": "Arginina (Arg)",
+  "CGA": "Arginina (Arg)",
+  "CGG": "Arginina (Arg)",
+  "AGU": "Serina (Ser)",
+  "AGC": "Serina (Ser)",
+  "AGA": "Arginina (Arg)",
+  "AGG": "Arginina (Arg)",
+  "GGU": "Glicina (Gly)",
+  "GGC": "Glicina (Gly)",
+  "GGA": "Glicina (Gly)",
+  "GGG": "Glicina (Gly)"
+};
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const letrasPosibles = ['C', 'T', 'G', 'A'];
@@ -6,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const contenidoElement = document.getElementById("contenido");
   const botonGenerar = document.getElementById("botonGenerar");
   const arnElement = document.getElementById("contenidoarn");
+  const ProtElement = document.getElementById("contenidoProt");
 
   function generarLetraAleatoria(letrasPosibles) {
     const indiceAleatorio = Math.floor(Math.random() * letrasPosibles.length);
@@ -42,18 +111,28 @@ document.addEventListener("DOMContentLoaded", function () {
           break;
       }
     }
-    let adn = [arn];
-    arnElement.textContent = "El ARNm es: " + adn;
+    arnElement.textContent = "El ARNm es: " + arn;
+
+    // Luego de generar el ARN, buscar los codones correspondientes
+    codonesCorrespondientes.length = 0; // Vaciar el arreglo
+    for (let i = 0; i < arn.length; i += 3) {
+      const codon = arn.slice(i, i + 3); // Obtener el codón de 3 letras
+      const aminoacido = codones[codon]; // Buscar el aminoácido correspondiente
+
+      // Si se encontró un aminoácido correspondiente, agregarlo al arreglo
+      if (aminoacido) {
+        codonesCorrespondientes.push(aminoacido);
+      }
+    }
+    ProtElement.textContent = "Proteinas: " + codonesCorrespondientes.join(', ');
+
+    // Luego de generar los datos, enviarlos
+    sendData();
   });
 });
 
-// Aquí movemos el evento click fuera del evento DOMContentLoaded
-botonGenerar.addEventListener('click', function () {
-  console.log("entro");
-  sendData();
-});
-
 function sendData() {
+  const fechaHoraActual = new Date(); // Obtener la fecha y hora actual 
 
   let adn = document.getElementById('contenido').textContent;
   let arn = document.getElementById('contenidoarn').textContent;
@@ -62,7 +141,8 @@ function sendData() {
   adnData = {
     adn: adn,
     arn: arn,
-    prot: prot
+    prot: prot,
+    fechaHoraCreacion: fechaHoraActual
   };
 
   console.log(adnData);

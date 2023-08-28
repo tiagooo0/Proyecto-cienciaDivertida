@@ -1,5 +1,4 @@
 //Todo lo relacionado con express (módulos, middlewares, configuraciones etc)
-
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
@@ -24,5 +23,6 @@ app.get('/generador', (req, res) => {
     res.render('generador')
     
 })
+
 module.exports = app;
 
