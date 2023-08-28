@@ -12,7 +12,6 @@ const dotenv = require("dotenv");
          useNewUrlParser: true,
      })
      .then((con) => {
-         //console.log(con.connections);
          console.log("Connected to database");
      });
 

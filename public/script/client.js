@@ -1,11 +1,11 @@
-document.addEventListener("DOMContentLoaded", function () {
+let formData = {}; // Declarar formData en un alcance global
 
+document.addEventListener("DOMContentLoaded", function () {
   const letrasPosibles = ['C', 'T', 'G', 'A'];
   const cantidadLetras = 15;
   const contenidoElement = document.getElementById("contenido");
   const botonGenerar = document.getElementById("botonGenerar");
   const arnElement = document.getElementById("contenidoarn");
-
 
   function generarLetraAleatoria(letrasPosibles) {
     const indiceAleatorio = Math.floor(Math.random() * letrasPosibles.length);
@@ -47,3 +47,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Aquí movemos el evento click fuera del evento DOMContentLoaded
+botonGenerar.addEventListener('click', function () {
+  console.log("entro");
+  sendData();
+});
+
+function sendData() {
+
+  let adn = document.getElementById('contenido').textContent;
+  let arn = document.getElementById('contenidoarn').textContent;
+  let prot = document.getElementById('contenidoProt').textContent;
+
+  formData = {
+    adn: adn,
+    arn: arn,
+    prot: prot
+  };
+
+  console.log(formData);
+}
