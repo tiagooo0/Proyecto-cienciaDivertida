@@ -1,4 +1,4 @@
-let formData = {}; // Declarar formData en un alcance global
+let adnData = {}; // Declarar formData en un alcance global
 
 document.addEventListener("DOMContentLoaded", function () {
   const letrasPosibles = ['C', 'T', 'G', 'A'];
@@ -59,11 +59,11 @@ function sendData() {
   let arn = document.getElementById('contenidoarn').textContent;
   let prot = document.getElementById('contenidoProt').textContent;
 
-  formData = {
+  adnData = {
     adn: adn,
     arn: arn,
     prot: prot
   };
 
-  console.log(formData);
+  console.log(adnData);
 }
