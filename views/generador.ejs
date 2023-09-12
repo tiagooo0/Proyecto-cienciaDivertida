@@ -19,25 +19,45 @@
   </style>
 </head>
 <body>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Dropdown button
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>
+  </div>
   <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <img src="/logo123.png" alt="" style="max-height: 200px; max-width: 150px;">
         </a>
-        <a class="navbar-brand" href="#">Los Atomitos 777</a>
+        <a class="navbar-brand" href="#" style="font-size: 40px; font-family: 'Chivo', sans-serif;">Los Atomitos 777</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <!-- Agrega elementos de la barra de navegación si es necesario -->
           </ul>
+        
         </div>
       </div>
+      <div>
+        <nav class="navbar navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/768px-Instagram_logo_2016.svg.png"width="30" height="30" alt="">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/1024px-X_logo_2023.svg.png" class="twt" width="30" height="30" alt="">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1024px-2021_Facebook_icon.svg.png"class="twt" width="30" height="30" alt="">
+          </a>
+        </nav>
+      </div>
+      
     </nav>
   </div>
-
   <!-- Begin page content -->
   <main role="main" class="container-fluid">
     <h1 class="mt-5 text-center" id="contenido"></h1>
@@ -46,6 +66,7 @@
     <button class="btn btn-primary" id="botonGenerar">Generar Letras</button>
   </main>
 
+ 
   <script src="/script/client.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>

@@ -19,3 +19,7 @@ body{
 .nombres{
   right: 500px;
 }
+.botonAdn{
+  position: relative
+}
+
