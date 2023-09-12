@@ -13,6 +13,11 @@ const adnSchema = new mongoose.Schema({
     proteina: {
         type: String,
     },
+    fechaHoraCreacion: {
+        Date
+    }
+
+
 });
 
 //Creación del modelo Post

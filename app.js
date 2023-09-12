@@ -25,4 +25,3 @@ app.get('/generador', (req, res) => {
 })
 
 module.exports = app;
-
