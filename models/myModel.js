@@ -14,10 +14,8 @@ const adnSchema = new mongoose.Schema({
         type: String,
     },
     fechaHoraCreacion: {
-        Date
+       type: Date
     }
-
-
 });
 
 //Creación del modelo Post
