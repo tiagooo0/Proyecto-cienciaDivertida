@@ -1,5 +1,7 @@
 let adnData = {}; // Declarar formData en un alcance globa
 const codonesCorrespondientes = [];
+const codonesIndeseados = ["UAA", "UAG", "AUG"]; // Codones a evitar
+
 const codones = {
   "UUU": "Fenilalanina (Phe)",
   "UUC": "Fenilalanina (Phe)",
@@ -89,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
       letrasAleatorias += generarLetraAleatoria(letrasPosibles);
     }
     letrasAleatorias += letrasFinales[Math.floor(Math.random() * letrasFinales.length)];
-    contenidoElement.textContent = "El ADN es: " + letrasAleatorias;
+    contenidoElement.textContent =  letrasAleatorias;
 
     // Ahora realizamos la conversión de ADN a ARN y cadena complementaria
     let arn = '';
@@ -111,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
           break;
       }
     }
-    arnElement.textContent = "El ARNm es: " + arn;
+    arnElement.textContent = arn;
 
     // Luego de generar el ARN, buscar los codones correspondientes
     codonesCorrespondientes.length = 0; // Vaciar el arreglo
@@ -124,26 +126,47 @@ document.addEventListener("DOMContentLoaded", function () {
         codonesCorrespondientes.push(aminoacido);
       }
     }
-    ProtElement.textContent = "Proteinas: " + codonesCorrespondientes.join(', ');
+    ProtElement.textContent = codonesCorrespondientes.join(', ');
 
-    // Luego de generar los datos, enviarlos
-    sendData();
+    
   });
 });
 
-function sendData() {
-  const fechaHoraActual = new Date(); // Obtener la fecha y hora actual 
 
+function sendData() {
+  const fechaHoraActual = new Date();
   let adn = document.getElementById('contenido').textContent;
   let arn = document.getElementById('contenidoarn').textContent;
   let prot = document.getElementById('contenidoProt').textContent;
 
-  adnData = {
-    adn: adn,
-    arn: arn,
-    prot: prot,
-    fechaHoraCreacion: fechaHoraActual
-  };
+  // Verificar si los datos tienen contenido antes de enviarlos
+  if (adn.trim() !== '' && arn.trim() !== '' && prot.trim() !== '') {
+    const adnData = {
+      adn: adn,
+      arn: arn,
+      prot: prot,
+      fechaHoraCreacion: fechaHoraActual
+    };
 
-  console.log(adnData);
+    fetch('/guardarDatos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(adnData)
+    })
+      .then(response => {
+        if (response.ok) {
+          console.log('Datos enviados y guardados correctamente en la base de datos.');
+        } else {
+          console.error('Error al enviar los datos al servidor.');
+        }
+      })
+      .catch(error => {
+        console.error('Error al enviar los datos al servidor:', error);
+      });
+      console.log(adnData);
+  } else {
+    console.log('No se enviaron datos vacíos a la base de datos.');
+  }
 }

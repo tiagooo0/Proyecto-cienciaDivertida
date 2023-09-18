@@ -14,7 +14,48 @@
     }
     .navbar-brand {
       font-size: 40px;
+      
     }
+    .titleTable{
+      margin-top: 30px;
+      text-align: center;
+      margin-bottom: 30px;
+  }
+  .elemTable {
+    color: black;
+  }
+    /* Estilos para la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+table th,
+table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Estilos para las filas impares */
+table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+/* Estilos para las filas al pasar el cursor */
+table tbody tr:hover {
+  background-color: #e0e0e0;
+}
+
+/* Estilos para las celdas de encabezado */
+table th {
+  background-color: #333;
+  color: #fff;
+}
+
 
   </style>
 </head>
@@ -60,11 +101,40 @@
   </div>
   <!-- Begin page content -->
   <main role="main" class="container-fluid">
+    <h1 class="mt-5 text-center" >El Adn es:</h1>
     <h1 class="mt-5 text-center" id="contenido"></h1>
+    <h1 class="mt-5 text-center" >El Arn es:</h1>
     <h1 class="mt-5 text-center" id="contenidoarn"></h1>
+    <h1 class="mt-5 text-center" >Proteinas:</h1>
     <h1 class="mt-5 text-center" id="contenidoProt"></h1>
-    <button class="btn btn-primary" id="botonGenerar">Generar Letras</button>
+    <button class="btn btn-primary" id="botonGenerar" onclick="sendData()">Generar Letras</button>
   </main>
+  <h1  class="titleTable">Tabla de las .... recientes</h1>
+  <div class="tablaContainer">
+  <table>
+    <thead>
+        <tr>
+            <th class="elemTable">ADN</th>
+            <th class="elemTable">ARN</th>
+            <th class="elemTable">PROTEINAS</th>
+            <th class="elemTable">HORA</th>
+            <!-- Agrega más encabezados según tus datos -->
+        </tr>
+    </thead>
+    <tbody>
+        <% datos.forEach((dato) => { %>
+        <tr>
+            <td class="elemTable"><%= dato.adn %></td>
+            <td class="elemTable"><%= dato.arn %></td>
+            <td class="elemTable"><%= dato.proteina %></td>
+            <td class="elemTable"><%= dato.fechaHoraCreacion %></td>
+            <!-- Agrega más columnas según tus datos -->
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+</div>
+
 
  
   <script src="/script/client.js"></script>
