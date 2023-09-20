@@ -1,138 +1,219 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Atomitos</title>
+		<link rel="icon" href="/logo123.png" />
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Chivo:wght@800&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			/* Estilos personalizados */
+			body {
+				background-color: rgb(50, 47, 47);
+				color: bisque;
+			}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atomitos</title>
-    <link rel="icon" href="/logo123.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        /* Estilos personalizados */
-        body {
-            background-color: rgb(50, 47, 47);
-            color: bisque;
-        }
+			.navbar-brand {
+				font-size: 40px;
+			}
 
-        .navbar-brand {
-            font-size: 40px;
-        }
+			.titleTable {
+				margin-top: 30px;
+				text-align: center;
+				margin-bottom: 30px;
+			}
 
-        .titleTable {
-            margin-top: 30px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
+			.elemTable {
+				color: black;
+			}
 
-        .elemTable {
-            color: black;
-        }
+			/* Estilos para la tabla */
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				background-color: #fff;
+				border-radius: 5px;
+				box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+			}
 
-        /* Estilos para la tabla */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        }
+			table th,
+			table td {
+				padding: 12px;
+				text-align: left;
+				border-bottom: 1px solid #ddd;
+			}
 
-        table th,
-        table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+			/* Estilos para las filas impares */
+			table tbody tr:nth-child(odd) {
+				background-color: #f2f2f2;
+			}
 
-        /* Estilos para las filas impares */
-        table tbody tr:nth-child(odd) {
-            background-color: #f2f2f2;
-        }
+			/* Estilos para las filas al pasar el cursor */
+			table tbody tr:hover {
+				background-color: #e0e0e0;
+			}
 
-        /* Estilos para las filas al pasar el cursor */
-        table tbody tr:hover {
-            background-color: #e0e0e0;
-        }
+			/* Estilos para las celdas de encabezado */
+			table th {
+				background-color: #333;
+				color: #fff;
+			}
+			.botonborrar {
+				display: flex;
+				justify-content: end;
+				align-items: flex-end;
+			}
+			.descripcionADN {
+			
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+            .generarsecuencias{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 30px;
+            }
+		</style>
+	</head>
 
-        /* Estilos para las celdas de encabezado */
-        table th {
-            background-color: #333;
-            color: #fff;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
+	<body>
+        <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        
+              <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="/logo123.png" alt="" style="max-height: 200px; max-width: 150px;">
+                  <img src="/logo123.png" alt="" style="max-height: 200px; max-width: 150px;">
                 </a>
-                <a class="navbar-brand" href="#" style="font-size: 40px; font-family: 'Chivo', sans-serif;">Los Atomitos
-                    777</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <a class="navbar-brand" href="#" style="font-size: 40px; font-family: 'Chivo', sans-serif;">Los Atomitos 777</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
+                  <div style="margin-right: 30px;">
+                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Somos un equipo de investigación los cuales investigan la expresión genética." style="margin-right: 10px;">
+                      ¿Quienes somos?
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Ofrecemos una gran cantidad de informacion genetica tanto experimental como computacional, nuestro laboratorio tiene de objetivo enseñar a los mas jovenes." style="margin-right: 10px;">
+                      ¿Que ofrecemos?
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="" style="margin-right: 10px;">
+                      Base de datos
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="" style="margin-right: 10px;">
+                      Línea de investigación
+                    </button>
+        
+                  </div>
+                  </li>
                 </div>
-            </div>
-            <div>
+              </div>
+              <div>
                 <nav class="navbar navbar-dark bg-dark">
-                    <a class="navbar-brand" href="#">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/768px-Instagram_logo_2016.svg.png"
-                            width="30" height="30" alt="">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/1024px-X_logo_2023.svg.png"
-                            class="twt" width="30" height="30" alt="">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1024px-2021_Facebook_icon.svg.png"
-                            class="twt" width="30" height="30" alt="">
-                    </a>
+                  <a class="navbar-brand" href="#">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/768px-Instagram_logo_2016.svg.png" width="30" height="30" alt="">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/1024px-X_logo_2023.svg.png" class="twt" width="30" height="30" alt="">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1024px-2021_Facebook_icon.svg.png" class="twt" width="30" height="30" alt="">
+                  </a>
                 </nav>
-            </div>
-
-        </nav>
-    </div>
-    <!-- Begin page content -->
-    <main role="main" class="container-fluid">
-        <h1 class="mt-5 text-center">El Adn es:</h1>
-        <h3 class="mt-5 text-center" id="contenido"></h3>
-        <h1 class="mt-5 text-center">El Arn es:</h1>
-        <h3 class="mt-5 text-center" id="contenidoarn"></h3>
-        <h1 class="mt-5 text-center">Proteinas:</h1>
-        <h3 class="mt-5 text-center" id="contenidoProt"></h3>
-        <button class="btn btn-primary" id="botonGenerar" onclick="sendData()">Generar Secuencias</button>
-    </main>
-    <h1 class="titleTable">Tabla de las secuencias recientes</h1>
-    <div class="tablaContainer">
-        <table>
-            <thead>
-                <tr>
-                    <th class="elemTable">ADN</th>
-                    <th class="elemTable">ARN</th>
-                    <th class="elemTable">PROTEINAS</th>
-                    <th class="elemTable">HORA</th>
-                    <!-- Agrega más encabezados según tus datos -->
-                </tr>
-            </thead>
-            <tbody>
-                <% datos.forEach((dato) => { %>
-                <tr>
-                    <td class="elemTable"><%= dato.adn %></td>
-                    <td class="elemTable"><%= dato.arn %></td>
-                    <td class="elemTable"><%= dato.proteina %></td>
-                    <td class="elemTable"><%= dato.fechaHoraCreacion %></td>
-                    <!-- Agrega más columnas según tus datos -->
-                </tr>
-                <% }); %>
-            </tbody>
-        </table>
-        <button type="button" class="btn btn-danger" onclick="elimData()">Borrar todas las secuencias</button>
-    </div>
-    <script src="/script/client.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-
+              </div>
+        
+            </nav>
+          </div>
+         
+		<!-- Begin page content -->
+		<main role="main" class="container-fluid">
+			<h1 class="mt-5 text-center">El Adn es:</h1>
+			<h3 class="mt-5 text-center" id="contenido"></h3>  
+            <div class="descripcionADN">
+				<button
+					type="button"
+					class="btn btn-secondary"
+					data-toggle="tooltip"
+					data-placement="bottom"
+					title="Esta es la secuencia de Adn del individuo "
+				>
+					¿Que es el Adn?
+				</button>
+			</div>
+			<h1 class="mt-5 text-center">El Arn es:</h1>
+			<h3 class="mt-5 text-center" id="contenidoarn"></h3>  <div class="descripcionADN">
+				<button
+					type="button"
+					class="btn btn-secondary"
+					data-toggle="tooltip"
+					data-placement="bottom"
+					title="Esta es la secuencia de Adn del individuo "
+				>
+					¿Que es el Arn?
+				</button>
+			</div>
+			<h1 class="mt-5 text-center">Proteinas:</h1>
+			<h3 class="mt-5 text-center" id="contenidoProt"></h3>  <div class="descripcionADN">
+				<button
+					type="button"
+					class="btn btn-secondary"
+					data-toggle="tooltip"
+					data-placement="bottom"
+					title="Esta es la secuencia de Adn del individuo "
+				>
+					¿Que son las Proteinas?
+				</button>
+			</div>
+		</main>
+		<div class="generarsecuencias">
+			<button
+				class="btn btn-primary"
+				id="botonGenerar"
+				onclick="sendData()"
+			>
+				Generar Secuencias
+			</button>
+		</div>
+    
+		<h1 class="titleTable">Tabla de las secuencias recientes</h1>
+		<div class="botonborrar">
+			<button type="button" class="btn btn-danger" onclick="elimData()">
+				Borrar todas las secuencias
+			</button>
+		</div>
+		<div class="tablaContainer">
+			<table>
+				<thead>
+					<tr>
+						<th class="elemTable">ADN</th>
+						<th class="elemTable">ARN</th>
+						<th class="elemTable">PROTEINAS</th>
+						<th class="elemTable">HORA</th>
+						<!-- Agrega más encabezados según tus datos -->
+					</tr>
+				</thead>
+				<tbody>
+					<% datos.forEach((dato) => { %>
+					<tr>
+						<td class="elemTable"><%= dato.adn %></td>
+						<td class="elemTable"><%= dato.arn %></td>
+						<td class="elemTable"><%= dato.proteina %></td>
+						<td class="elemTable"><%= dato.fechaHoraCreacion %></td>
+						<!-- Agrega más columnas según tus datos -->
+					</tr>
+					<% }); %>
+				</tbody>
+			</table>
+		</div>
+		<script src="/script/client.js"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	</body>
 </html>
