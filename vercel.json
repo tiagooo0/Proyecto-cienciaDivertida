@@ -1,26 +1,23 @@
 {
     "version": 2,
-    "installCommand": "npm install",
-    
-    "config":[
-        {
-            "commands":[
-                "npm install",
-                "rm -rf node_modules",
-                "npm install"
-            ]
-        }
-    ],
     "builds": [
-        {
-            "src": "server.js",
-            "use": "@vercel/node"
+      {
+        "src": "server.js",
+        "use": "@vercel/node",
+        "config": {
+          "commands": [
+            "npm install",
+            "rm -rf node_modules",
+            "npm install"
+          ]
         }
+      }
     ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "server.js"
-        }
+      {
+        "src": "/(.*)",
+        "dest": "server.js"
+      }
     ]
   }
+  
