@@ -1,6 +1,16 @@
 {
     "version": 2,
     "installCommand": "npm install",
+    
+    "config":[
+        {
+            "commands":[
+                "npm install",
+                "rm -rf node_modules",
+                "npm install"
+            ]
+        }
+    ],
     "builds": [
         {
             "src": "server.js",
