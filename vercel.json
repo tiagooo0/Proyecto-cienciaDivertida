@@ -3,15 +3,7 @@
     "builds": [
       {
         "src": "server.js",
-        "use": "@vercel/node",
-        "config": {
-          "commands": [
-            "npm install",
-            "rm -rf node_modules",
-            "npm install", 
-            "npm install mongoose --save"
-          ]
-        }
+        "use": "@vercel/node"
       }
     ],
     "routes": [
