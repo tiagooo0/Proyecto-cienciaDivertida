@@ -1,4 +1,5 @@
 let adnData = {}; // Declarar formData en un alcance globa
+//Me gustaria declararle mi amor pero solo se declarar variables
 const codonesCorrespondientes = [];
 const codonesIndeseados = ["UAA", "UAG", "AUG"]; // Codones a evitar
 const codones = {
